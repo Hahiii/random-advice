@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Random Advice</title>
+  <link rel="stylesheet" href="/style/index.css">
+  <script src="/vendors/handlebars-3ce4425.js"></script>
+  <script src="/script/index.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="main-header">
+      <h1>Random Advice</h1>
+      <h3>Get a free Random Advice</h3>
+    </header>
+    <main class="main-container">
+      <script id="advice-template" type="text/x-handlebars-template">
+        <div class="advice-container">{{advice}}</div>
+      </script>
+    </main>
+    <div class="main-button">
+    <button id="new-advice">Get advice</button>   
+  </div> 
+  </div>
+</body>
+</html>
