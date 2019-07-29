@@ -12,16 +12,22 @@
 <body>
   <div class="wrapper">
     <header class="main-header">
-      <h1>Random Advice</h1>
-      <h3>Get a free Random Advice</h3>
+      <div id="title" class="title-start">
+        <h1>Random Advice</h1>
+        <h3>Get a free Random Advice</h3>
+      </div>
     </header>
     <main class="main-container">
+        <div class="spin">
+            <div class=""></div>
+            <p></p>
+          </div>
       <script id="advice-template" type="text/x-handlebars-template">
         <div class="advice-container">{{advice}}</div>
       </script>
     </main>
     <div class="main-button">
-    <button id="new-advice">Get advice</button>   
+    <button id="new-advice">Start</button>   
   </div> 
   </div>
 </body>
