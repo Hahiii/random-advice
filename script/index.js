@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function setlogo() {
     if (spinner.childNodes[1].classList == "") {
       spinner.childNodes[1].classList.add("spinner");
-      spinner.childNodes[3].innerHTML ="...loading..."
+      spinner.childNodes[3].innerHTML ="Searching My Brain for more Advice"
       mainContainer.innerHTML = "";
       mainContainer.appendChild(spinner);
     }else{
@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (newAdvice.innerHTML == "Next Advice") {
       setTimeout(() => { 
         getNewAdvice();
-      },1000)
+      },5000)
     }
   };
   
