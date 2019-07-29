@@ -130,3 +130,35 @@ button:hover {
   cursor: pointer;
   box-shadow: 0px 0px 3px 0px;
 }
+
+@media all and (max-width: 900px) {
+  .title-start {
+    transform: scale(1.5);
+    left: 30vw;
+  }
+  
+  .title-logo{
+    transform: scale(1);
+  }
+}
+
+@media all and (max-width: 700px) {
+  .title-start {
+    transform: scale(1);
+    left: 10vw;
+  }
+  
+  .title-logo{
+    transform: scale(.7);
+  }
+}
+@media all and (max-width: 450px) {
+  .title-start {
+    transform: scale(1);
+    left: 0vw;
+  }
+  
+  .title-logo{
+    transform: scale(.7);
+  }
+}
