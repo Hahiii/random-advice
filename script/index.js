@@ -3,36 +3,42 @@ window.addEventListener("DOMContentLoaded", () => {
   const newAdvice = document.querySelector("#new-advice");
   newAdvice.addEventListener("click", setlogo, false);
   let title = document.querySelector("#title");
-  title.addEventListener("animationend", getNewAdvice);
+  title.addEventListener("animationend", animationEnded);
   let spinner = document.querySelector(".spin")
   let adviceSource = document.querySelector("#advice-template").innerHTML;
   let adviceTemplate = Handlebars.compile(adviceSource);
   
   function setlogo() {
-    if (spinner.childNodes[1].classList == "") {
-      spinner.childNodes[1].classList.add("spinner");
-      spinner.childNodes[3].innerHTML ="Searching My Brain for more Advice"
+    if (spinner.style.display == "none") {
       mainContainer.innerHTML = "";
+      spinner.style.display = "flex";
       mainContainer.appendChild(spinner);
-    }else{
-      mainContainer.innerHTML = "";
-      mainContainer.appendChild(spinner);
+      console.log("halooo its flex")
     }
+
     if (title.classList == "title-start" ) {
       title.classList.remove("title-start");
       title.classList.add("title-logo");
     }
+    
     if (newAdvice.innerHTML == "Next Advice") {
       setTimeout(() => { 
         getNewAdvice();
-      },5000)
+      },1000)
     }
+  };
+  
+  function animationEnded() {
+    spinner.style.display = "flex";
+    newAdvice.innerHTML = "Next Advice";
+    getNewAdvice();
   };
   
   function getNewAdvice(data) {
     fetch(`https://api.adviceslip.com/advice`)
     .then(function(response) {
       if (response.ok) {
+        spinner.style.display = "none";
         return response.json();
       }else{
         throw new Error("got no data");
@@ -43,16 +49,14 @@ window.addEventListener("DOMContentLoaded", () => {
         let advice = adviceTemplate({advice: data.slip.advice});
         mainContainer.innerHTML = advice;
       }else{
-        let noData = adviceTemplate({advice: "Got no more free Advice"});
-        mainContainer.innerHTML += noData;
+        throw new Error("got no data");        
       }
     })
     .catch(function(err){
-      let noData = adviceTemplate({advice: err});
+      spinner.style.display = "none";
+      let noData = adviceTemplate({error: err});
       mainContainer.innerHTML += noData;
     })
-    newAdvice.innerHTML = "Next Advice";
-    mainContainer.removeChild(spinner);
   };
   
 });

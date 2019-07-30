@@ -19,11 +19,15 @@
     </header>
     <main class="main-container">
         <div class="spin">
-            <div class=""></div>
-            <p></p>
+            <div class="spinner"></div>
+            <p>Searching My Brain for more Advice</p>
           </div>
       <script id="advice-template" type="text/x-handlebars-template">
+      {{#if advice}}
         <div class="advice-container">{{advice}}</div>
+        {{else}}
+        <div class="advice-container">{{error}}</div>
+      {{/if}}
       </script>
     </main>
     <div class="main-button">
