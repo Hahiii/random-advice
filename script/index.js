@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let adviceTemplate = Handlebars.compile(adviceSource);
   
   function setlogo() {
-    newAdvice.style.display = "none"
+    newAdvice.classList.add("hide-button");
     if (spinner.style.display == "none") {
       mainContainer.innerHTML = "";
       spinner.style.display = "flex";
@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
       if (data) {
         let advice = adviceTemplate({advice: data.slip.advice});
         mainContainer.innerHTML = advice;
-        newAdvice.style.display = "block"
+        newAdvice.classList.remove("hide-button");
       }else{
         throw new Error("got no data");        
       }

@@ -119,6 +119,7 @@ button {
   top: 50vh;
   left: 40vw;
 }
+
 .title-logo{
   position: relative;
   display: inline-block;
@@ -129,6 +130,11 @@ button {
 button:hover {
   cursor: pointer;
   box-shadow: 0px 0px 3px 0px;
+}
+
+.hide-button {
+  opacity: 0;
+  visibility: hidden;
 }
 
 @media all and (max-width: 900px) {
