@@ -2,18 +2,20 @@ window.addEventListener("DOMContentLoaded", () => {
   const mainContainer = document.querySelector(".main-container");
   const newAdvice = document.querySelector("#new-advice");
   newAdvice.addEventListener("click", setlogo, false);
+
   let title = document.querySelector("#title");
   title.addEventListener("animationend", animationEnded);
+
   let spinner = document.querySelector(".spin")
   let adviceSource = document.querySelector("#advice-template").innerHTML;
   let adviceTemplate = Handlebars.compile(adviceSource);
   
   function setlogo() {
+    newAdvice.style.display = "none"
     if (spinner.style.display == "none") {
       mainContainer.innerHTML = "";
       spinner.style.display = "flex";
       mainContainer.appendChild(spinner);
-      console.log("halooo its flex")
     }
 
     if (title.classList == "title-start" ) {
@@ -21,17 +23,19 @@ window.addEventListener("DOMContentLoaded", () => {
       title.classList.add("title-logo");
     }
     
-    if (newAdvice.innerHTML == "Next Advice") {
+    if (newAdvice.innerHTML == "next advice") {
       setTimeout(() => { 
         getNewAdvice();
-      },1000)
+      },600)
     }
   };
   
   function animationEnded() {
     spinner.style.display = "flex";
-    newAdvice.innerHTML = "Next Advice";
-    getNewAdvice();
+    newAdvice.innerHTML = "next advice";
+    setTimeout(() => { 
+      getNewAdvice();
+    },600)
   };
   
   function getNewAdvice(data) {
@@ -48,6 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
       if (data) {
         let advice = adviceTemplate({advice: data.slip.advice});
         mainContainer.innerHTML = advice;
+        newAdvice.style.display = "block"
       }else{
         throw new Error("got no data");        
       }

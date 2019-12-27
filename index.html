@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,30 +10,32 @@
   <script src="vendors/handlebars-3ce4425.js"></script>
   <script src="script/index.js"></script>
 </head>
+
 <body>
   <div class="wrapper">
     <header class="main-header">
       <div id="title" class="title-start">
         <h1>Random Advice</h1>
-        <h3>Get a free Random Advice</h3>
+        <h3>Get a free random advice</h3>
       </div>
     </header>
     <main class="main-container">
-        <div class="spin">
-            <div class="spinner"></div>
-            <p>Searching My Brain for more Advice</p>
-          </div>
+      <div class="spin">
+        <div class="spinner"></div>
+        <p>Searching for new advice</p>
+      </div>
       <script id="advice-template" type="text/x-handlebars-template">
       {{#if advice}}
         <div class="advice-container">{{advice}}</div>
         {{else}}
         <div class="advice-container">{{error}}</div>
-      {{/if}}
+        {{/if}}
       </script>
     </main>
     <div class="main-button">
-    <button id="new-advice">Start</button>   
-  </div> 
+      <button id="new-advice">Start</button>
+    </div>
   </div>
 </body>
+
 </html>
